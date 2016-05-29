@@ -9,7 +9,6 @@ public class LastBooking extends PachetSpecial{
 	public void alertaPachetPromotional(Oferta special) {
 		if(special.getPretNoapte() < 30)
 		{
-			//System.out.println("Pret mai mic de 100!");
 			if(this.next!=null)
 		this.next.alertaPachetPromotional(special);
 			

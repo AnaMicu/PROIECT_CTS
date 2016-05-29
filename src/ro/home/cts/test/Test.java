@@ -116,6 +116,8 @@ public class Test {
 		ofertaTemplate=new Circuit(15, 75);
 		ofertaTemplate.template();
 		
+	
+		
 	}
 
 }

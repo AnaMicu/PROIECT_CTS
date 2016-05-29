@@ -47,33 +47,5 @@ public class AgentieTurism {
 		System.out.println("Agentia de Turism " +"\n" +denumire + " " + oras
 				+"\n Tel:" + telefon +"\n Mail:" + mail);
 	}
-
-	
-	/*public PachetDisponibil getPachetDisponibil(TipPachet tipPachet){
-		PachetDisponibil pachet=null;
-		switch(tipPachet){
-		case SEJUR: 
-			//pachet=new Sejur("Grecia", 254);
-			pachet=new Sejur(7, 20);
-			pachet.setPlecare("Bucuresti");
-			break;
-			
-		case CITYBREAK :
-			//pachet= new CityBreak("Paris", 189);
-			pachet=new CityBreak(3,15);
-			pachet.setPlecare("Bucuresti");
-			break;
-			
-		case CIRCUIT :
-			//pachet=new Circuit("Budapesta-Ungaria-Serbia", 589);
-			pachet=new Circuit(14, 10);
-			pachet.setPlecare("Bucuresti");
-			break;
-	}
-		return pachet;
-	
-	}*/
-	
-
 	
 }

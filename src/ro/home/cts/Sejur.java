@@ -20,7 +20,6 @@ public class Sejur extends IOferta{
 
 	@Override
 	public void detaliiPacheteDisponibile() {
-		//System.out.println(plecare + " " + destinatie + " " + pret);
 		System.out.println("Numar zile:" + nrZile + "\n" + "Pret pe zi :" + pret);
 		
 	}
@@ -30,7 +29,6 @@ public class Sejur extends IOferta{
 	@Override
 	public double costPachet() {
 		double cost=nrZile*pret;
-		System.out.println("Costul cazarii: " + cost);
 		return cost;
 	}
 
@@ -54,11 +52,9 @@ public class Sejur extends IOferta{
 		
 		else
 		{
-			reducere=0;
 			System.out.println("Numarul de zile nu se incadreaza in reducere!");
 			
-		}
-			
+		}		
 		
 	}
 

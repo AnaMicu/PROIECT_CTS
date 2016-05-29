@@ -16,21 +16,18 @@ public class CityBreak extends IOferta{
 
 	@Override
 	public void detaliiPacheteDisponibile() {
-		//System.out.println(plecare + " " + destinatie + " " + pret);
 		System.out.println("Numar zile:" + nrZile + "\n" + "Pret pe zi :" + pret);
 	}
 
 	@Override
 	public double costPachet() {
 		double cost=nrZile*pret;
-		System.out.println("Costul cazarii: " + cost);
 		return cost;
 	}
 
 
 	@Override
 	public String getTip() {
-		
 		return "CITYBREAK";
 	}
 
@@ -45,7 +42,6 @@ public class CityBreak extends IOferta{
 		
 		else
 		{
-			reducere=0;
 			System.out.println("Numarul de zile nu se incadreaza in reducere!");
 			
 		}

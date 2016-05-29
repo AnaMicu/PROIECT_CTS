@@ -10,11 +10,32 @@ public class Circuit extends IOferta{
 	public double pret;
 
 	public Circuit(int nrZile, double pret) {
-		super();
 		this.nrZile = nrZile;
 		this.pret = pret;
 	}
 	
+	public int getNrZile() {
+		return nrZile;
+	}
+
+
+	public void setNrZile(int nrZile) {
+		this.nrZile = nrZile;
+	}
+
+
+	public double getPret() {
+		return pret;
+	}
+
+
+	public void setPret(double pret) {
+		this.pret = pret;
+	}
+
+
+
+
 	@Override
 	public void detaliiPacheteDisponibile() {
 		
@@ -25,13 +46,11 @@ public class Circuit extends IOferta{
 	@Override
 	public double costPachet() {
 		double cost=nrZile*pret;
-		System.out.println("Costul cazarii: " + cost);
 		return cost;
 	}
 
 	@Override
 	public String getTip() {
-		// TODO Auto-generated method stub
 		return "CIRCUIT";
 	}
 
@@ -46,7 +65,6 @@ public class Circuit extends IOferta{
 		
 		else
 		{
-			reducere=0;
 			System.out.println("Numarul de zile nu se incadreaza in reducere!");
 			
 		}
