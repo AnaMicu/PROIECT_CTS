@@ -15,7 +15,8 @@ public class AlertaMail {
 		if(special==null)
 			this.special=special;
 		else
-		{PachetSpecial handler=null;
+		{
+			PachetSpecial handler=null;
 		for(handler=this.special; handler.next!=null;handler=handler.next)
 			handler.next=special;
 			

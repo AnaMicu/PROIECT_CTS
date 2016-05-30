@@ -15,9 +15,9 @@ public class TestCaseCostMicDejunOferta extends TestCase {
 
 	public void testMetodaValoriNormale(){
 		int nrZile=5;
-		double pretMdj=20;
+		double pretMdj=15;
 		double cost=oferta.costMicDejun(nrZile, pretMdj);
-		assertEquals("Valori normale cost!",100.0,cost);
+		assertEquals("Valori normale cost!",75.0,cost);
 	}
 	
 	
@@ -45,9 +45,9 @@ public class TestCaseCostMicDejunOferta extends TestCase {
 		
 	}
 	
-	//Numarul maxim de zile pentru sejur este 8,pentru city brak 4 si pentru circuit 16.
+	//Numarul maxim de zile pentru sejur este 1 si 14
 	public void testMetodaValoareMaximaZile(){
-		int nrZile=19;
+		int nrZile=15;
 		double pretMdj=15;
 		try{
 			oferta.costMicDejun(nrZile, pretMdj);
@@ -81,7 +81,7 @@ public class TestCaseCostMicDejunOferta extends TestCase {
 		}
 	}
 	
-	//Pretul maxim poate fi 20 
+	//Pretul maxim poate fi 15 si minim 5 
 	public void testMetodaValoareMaximaPret(){
 		int nrZile=4;
 		double pretMdj=80;
@@ -91,5 +91,17 @@ public class TestCaseCostMicDejunOferta extends TestCase {
 		}catch(Exception ex){
 		}	
 	}
+	
+	//Pretul maxim poate fi 15 si minim 5 
+		public void testMetodaValoareMinimaPret(){
+			int nrZile=4;
+			double pretMdj=2;
+			try{
+				oferta.costMicDejun(nrZile, pretMdj);
+				fail("Pret prea mic!");
+			}catch(Exception ex){
+			}	
+		}
+		
 	
 }

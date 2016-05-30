@@ -1,8 +1,11 @@
 package ro.home.cts.build;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
+
+import ro.home.cts.TipPachet;
 
 public class Oferta {
 	String plecare;
@@ -70,7 +73,7 @@ public class Oferta {
 	
 	
 	public Oferta(String hotel,int nrStele){
-		if(nrStele <=0)
+		if(nrStele <=0 || nrStele > 5)
 			throw new UnsupportedOperationException();
 		else if(hotel == null || hotel.isEmpty())
 			throw new UnsupportedOperationException();
@@ -97,9 +100,9 @@ public class Oferta {
 	}
 	
 	public double costMicDejun(int nrZile,double pretMdj){
-		if(nrZile <= 0  || nrZile >=16)
+		if(nrZile <= 0  || nrZile >14)
 	 		throw new UnsupportedOperationException();
-	  else if(pretMdj <= 0 || pretMdj > 20)
+	  else if(pretMdj < 5 || pretMdj > 15)
 		  throw new UnsupportedOperationException();
 		double cost=nrZile*pretMdj;
 		return cost;
@@ -107,53 +110,67 @@ public class Oferta {
 	}
 	
 	public double costCazare(int nrZile,double pretNoapte){
-		if(nrZile == 0 && pretNoapte == 0)
+		if(nrZile <= 0 || pretNoapte <= 20)
 			throw new UnsupportedOperationException();
-		else if(nrZile < 0 || nrZile >=16)
+		else if( nrZile > 14)
 			throw new UnsupportedOperationException();
-		else if(pretNoapte < 40 || pretNoapte >= Double.MAX_VALUE)
+		else if( pretNoapte >= Double.MAX_VALUE)
 			throw new UnsupportedOperationException();
 		double costCazare=nrZile*pretNoapte;
 		return costCazare;
 		
 	}
-	//6
-      public int ofertaCazare(int nrZile){
-    	  if(nrZile == 7)
-    		  nrZile=nrZile+1;
-    	  else
-    		 System.out.println("Nu se aplica oferta!");
+	
+	public int ofertaCazare(int nrZile,TipPachet tip){
+  	  if(tip!=TipPachet.SEJUR)
+  		  throw new UnsupportedOperationException();
+  	  else if(nrZile != 7)
+  		  throw new UnsupportedOperationException();
+  		  nrZile=nrZile+1;
 		return nrZile;
-      }
-	//7
+    }
+
+	
       public double ofertaMicDejun(int nrZile,double pretMicDejun){
     	  double reducere=0;
-    	  if(nrZile > 7)
-    		  reducere=pretMicDejun*0.05;
-    	  else
+    	  if(pretMicDejun > 15 || pretMicDejun < 5)
+    		  throw new UnsupportedOperationException();
+    	  if(nrZile <=  0 || nrZile > 14 )
+    		  throw new UnsupportedOperationException();
+    	  if(nrZile <=  7 )
     		  reducere=pretMicDejun*0.02;
+    	  else
+    		  reducere=pretMicDejun*0.05;
     		  
-		return pretMicDejun;
+		return reducere;
     	  
       }
       
-      //8
+      
       public double discountCazare(int nrZile,double pretNoapte){
     	  double discount=0;
-    	  if(nrZile > 10)
-    		  discount=nrZile*pretNoapte*0.10;
-    	  else 
+    	  if(nrZile ==0 && pretNoapte == 0)
+    		  throw new UnsupportedOperationException();
+    	  else if(nrZile <= 0 || nrZile > 14)
+    		  throw new UnsupportedOperationException();
+    	  else if(pretNoapte < 20 || pretNoapte > 250 )
+    		  throw new UnsupportedOperationException();
+    	  if(nrZile <= 10)
     		  discount=nrZile*pretNoapte*0.05;
-    		  
-		return pretNoapte;
+    	  else 
+    		  discount=nrZile*pretNoapte*0.10;
+		return  discount;
     	  
       }
-	//9
-	public void discountMicDejun(int nrStele,double pretMdj){
+	
+	public double discountMicDejun(int nrStele,double pretMdj){
 		double pret_redus=0; 
 		double pret_discount=0;
-		
-		if(nrStele < 4)
+		if(nrStele == 0 && pretMdj == 0)
+			throw new UnsupportedOperationException();
+		else if(nrStele <= 0 || pretMdj < 5 || nrStele > 5 || pretMdj > 15)
+			throw new UnsupportedOperationException();
+		if(nrStele <= 3)
 		{
 			 pret_discount=pretMdj*0.05;
 			 pret_redus=pretMdj-pret_discount;
@@ -164,12 +181,19 @@ public class Oferta {
 			pret_discount=pretMdj*0.1;  
 		 pret_redus=pretMdj-pret_discount;
 		System.out.println("Pentru hotelurile de maxim 5  stele se acorda un disocunt de 10% pentru micul dejun" + "\n" +pret_redus);
+		
+		return pret_redus;
+		
 	}
 	
 	
-	//10
+	
 	public double costTotalOferta(boolean areMicDejun,double pret,double pretNoapte,int nrZile){
 		double rez=0;
+		if(areMicDejun == false || pret < 5 || pretNoapte<20 || nrZile<=0)
+			throw new UnsupportedOperationException();
+		else if(pret > 15 || pretNoapte > 250 || nrZile >14 )
+			throw new UnsupportedOperationException();
 		if(areMicDejun == true)
 			rez=nrZile*(pretNoapte+pret);
 		else
@@ -177,6 +201,7 @@ public class Oferta {
 		return rez;
 		
 	}
+	
 	
 	
 	@Override

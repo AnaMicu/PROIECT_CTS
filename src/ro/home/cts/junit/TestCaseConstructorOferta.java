@@ -43,6 +43,19 @@ public class TestCaseConstructorOferta extends TestCase {
 		}
 	}
 	
+
+	public void testConstructorValoriPreaMariStele(){
+		String hotel="Azur";
+		int nrStele=6;
+		try{
+			oferta=new Oferta(hotel, nrStele);
+			fail("Numar stele prea mare!");
+		}catch(Exception ex){
+			
+		}
+	}
+	
+	
 	
 	public void testConstructorValoriNuleHotel(){
 		String hotel=null;

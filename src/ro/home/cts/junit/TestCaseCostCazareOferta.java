@@ -42,7 +42,20 @@ public class TestCaseCostCazareOferta extends TestCase {
 		}
 	}
 	
-	//Maxim 16 zile circuit!
+	public void testCostCazareValoriNegativePret(){
+		int nrZile=2;
+		double pretNoapte=-80;
+		try{
+			oferta.costCazare(nrZile, pretNoapte);
+			fail("Pret negativ!");
+			
+		}catch(Exception ex){
+			
+		}
+	}
+	
+	
+	//Numarul maxim de zile este intre 1 si 14.
 	public void testCostCazareValoriMariZile(){
 		int nrZile=360;
 		double pretNoapte=120;
@@ -54,7 +67,7 @@ public class TestCaseCostCazareOferta extends TestCase {
 		}
 	}
 	
-	//Pret minim 40 euro
+	//Pret minim pe noapte 20 euro
 	public void testCostCazareValoriMinimePret(){
 		int nrZile=5;
 		double pretNoapte=1.0;
