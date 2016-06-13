@@ -96,15 +96,16 @@ public class Test {
 		breakF.alertaPachetPromotional(o_4);
 		breakF.alertaPachetPromotional(o_5);
 		
-		
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		//facade
 		GeneratorOferta generareOferta=new GeneratorOferta();
 		System.out.println("Pret estimativ pentru un sejur de 7 zile cu mic dejun inclus");
-		generareOferta.costTotalSejur();
+		//generareOferta.costTotalSejur();
 		System.out.println("Pret estimativ pentru un city break de 3 zile cu mic dejun inclus");
-		generareOferta.costTotalCityBreak();
+		//generareOferta.costTotalCityBreak();
 		System.out.println("Pret estimativ pentru un circuit de 14 zile cu mic dejun inclus");
-		generareOferta.costTotalCircuit();
+		//generareOferta.costTotalCircuit();
+		generareOferta.costTotalVacanta();
 		
 		//template
 		IOferta ofertaTemplate= new Sejur(7, 100);

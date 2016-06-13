@@ -29,5 +29,13 @@ public class GeneratorOferta {
 	   System.out.println(circuit.costPachet() + PRET_MDJ);
 	}
 	
+   public void costTotalVacanta(){
+	   System.out.println(sejur.costPachet() + PRET_MDJ);
+	   System.out.println(citybreak.costPachet() + PRET_MDJ);
+	   System.out.println(circuit.costPachet() + PRET_MDJ);
+   
+   }
 
+   
+   
 }
